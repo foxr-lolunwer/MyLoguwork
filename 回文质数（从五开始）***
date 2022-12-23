@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	int a, b;
+	scanf("%d%d", &a, &b);
+	int i, j, k, p=0;
+	int c, d;
+	char a1[10] = { 0 };
+	for (i = a; i <= b; i++)
+	{
+		c = 0;
+		d = i;
+		j = 0;
+		while (1)
+		{
+			c = d % 10;
+			d /= 10;
+			a1[j] = c;
+			j++;
+			if (d == 0)
+				break;
+		}
+		if (j != 4 && j != 6 && j != 8)
+		{
+			if (i <= 1)
+				c=0;
+			if (i == 5)
+				c=1;
+			if (i % 2 == 0 || i % 3 == 0)
+				c=0;
+			else
+			{
+				for (k = 6; k <= sqrt(double(i)); k += 6)
+				{
+					if (i % (k - 1) == 0 || i % (k + 1) == 0)
+						break;
+				}
+				if (k = sqrt(double(i)))
+					c = 1;
+			}
+			j--;
+			if (c == 1)
+			{
+
+
+				c = 0;
+				for (k = 0; k <= j - k; k++)
+				{
+					if (a1[k] != a1[j - k])
+					{
+						c = 1;
+						break;
+					}
+				}
+				if (c == 0)
+				{
+					printf("%d\n", i);
+				}
+			}
+		}
+	}
+	return 0;
+}
